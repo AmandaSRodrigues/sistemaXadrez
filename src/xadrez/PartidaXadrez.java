@@ -1,5 +1,8 @@
 package xadrez;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jogoDeTabuleiro.Peca;
 import jogoDeTabuleiro.Posicao;
 import jogoDeTabuleiro.Tabuleiro;
@@ -11,6 +14,9 @@ public class PartidaXadrez {
 	private int rodada;
 	private Color jogadorAtual;
 	private Tabuleiro tabuleiro;
+	
+	private List<Peca> pecasTabuleiro = new ArrayList<>();
+	private List<Peca> pecasCapturadas = new ArrayList<>();
 	
 	public PartidaXadrez() {
 		tabuleiro = new Tabuleiro(8, 8);
@@ -57,6 +63,12 @@ public class PartidaXadrez {
 		Peca p = tabuleiro.removerPeca(origem);
 		Peca pecaCapturada = tabuleiro.removerPeca(destino);
 		tabuleiro.lugarPeca(p, destino);
+		
+		if (pecaCapturada != null) {
+			pecasTabuleiro.remove(pecaCapturada);
+			pecasCapturadas.add(pecaCapturada);
+		}
+		
 		return pecaCapturada;	
 	}
 	
@@ -65,7 +77,7 @@ public class PartidaXadrez {
 			throw new XadrezException("Nao existe peca na posicao de origem.");
 		}
 		if (jogadorAtual != ((PecaXadrez)tabuleiro.peca(posicao)).getColor()) {
-			throw new XadrezException("A peca que escolhida pertence ao adversário.");
+			throw new XadrezException("A peca que escolhida pertence ao adversario.");
 		}
 		if(!tabuleiro.peca(posicao).existeMovimento()) {
 			throw new XadrezException("Nao existe movimentos possiveis para essa peca.");
@@ -85,6 +97,7 @@ public class PartidaXadrez {
 	
 	private void novoLugarPeca(char coluna, int linha, PecaXadrez peca) {
 		tabuleiro.lugarPeca(peca, new PosicaoXadrez(coluna,linha).toPosicao());
+		pecasTabuleiro.add(peca);
 	}
 	
 	private void iniciarPartida() {

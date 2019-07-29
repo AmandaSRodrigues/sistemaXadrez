@@ -58,12 +58,18 @@ public class UI { // abreviacao de Using Interface
 		printPecaCapturada(capturada);
 		System.out.println();
 		System.out.println("Rodada: " + partidaXadrez.getRodada());
-		System.out.println("Esperando jogador: " + partidaXadrez.getJogadorAtual());
-		if (partidaXadrez.getCheck()) {
-			System.out.println("CHECK!");
+		if (!partidaXadrez.getCheckMate()) {
+			System.out.println("Esperando jogador: " + partidaXadrez.getJogadorAtual());
+			if (partidaXadrez.getCheck()) {
+				System.out.println("CHECK!");
+			}
+		}
+		else {
+			System.out.println("CHECKMATE");
+			System.out.println("Vencedor: " + partidaXadrez.getJogadorAtual());
 		}
 	}
-
+	
 	public static void printTabuleiro(PecaXadrez[][] pecas) {
 		for (int i = 0; i < pecas.length; i++) {
 			System.out.print((8 - i) + " ");
@@ -107,7 +113,7 @@ public class UI { // abreviacao de Using Interface
 	private static void printPecaCapturada(List<PecaXadrez> capturada) {
 		List<PecaXadrez> white = capturada.stream().filter(x -> x.getColor() == Color.WHITE).collect(Collectors.toList());
 		List<PecaXadrez> black = capturada.stream().filter(x -> x.getColor() == Color.BLACK).collect(Collectors.toList());
-		System.out.println("Pecas capituradas: ");
+		System.out.println("Pecas capturadas: ");
 		System.out.print("Brancas: ");
 		System.out.print(ANSI_WHITE);
 		System.out.println(Arrays.toString(white.toArray()));

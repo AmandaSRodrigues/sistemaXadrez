@@ -59,6 +59,9 @@ public class UI { // abreviacao de Using Interface
 		System.out.println();
 		System.out.println("Rodada: " + partidaXadrez.getRodada());
 		System.out.println("Esperando jogador: " + partidaXadrez.getJogadorAtual());
+		if (partidaXadrez.getCheck()) {
+			System.out.println("CHECK!");
+		}
 	}
 
 	public static void printTabuleiro(PecaXadrez[][] pecas) {

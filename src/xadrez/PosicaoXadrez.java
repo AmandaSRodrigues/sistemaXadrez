@@ -6,6 +6,7 @@ public class PosicaoXadrez {
 	
 	private char coluna;
 	private int linha;
+	
 	public PosicaoXadrez(char coluna, int linha) {
 		if (coluna < 'a' || coluna > 'h' || linha < 1 || linha > 8) {
 			throw new XadrezException("Erro ao instanciar a posicao. Os valores validos sao de a1 a h8.");
@@ -27,7 +28,7 @@ public class PosicaoXadrez {
 	}
 	
 	protected static PosicaoXadrez fromPosicao(Posicao posicao) {
-		return new PosicaoXadrez((char)('a' - posicao.getColuna()), 8 - posicao.getLinha());
+		return new PosicaoXadrez((char)('a' + posicao.getColuna()), 8 - posicao.getLinha());
 	}
 
 	@Override

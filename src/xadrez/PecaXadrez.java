@@ -18,7 +18,7 @@ public abstract class PecaXadrez extends Peca{
 		return color;
 	}
 	
-	public int getcontarMovimentos() {
+	public int getContarMovimentos() {
 		return contarMovimentos;
 	}
 	

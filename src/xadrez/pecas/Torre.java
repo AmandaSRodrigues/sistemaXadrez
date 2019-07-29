@@ -19,6 +19,7 @@ public class Torre extends PecaXadrez {
 	@Override
 	public boolean[][] possiveisMovimentos() {
 		boolean[][] mat = new boolean[getTabuleiro().getLinhas()][getTabuleiro().getColunas()];
+		
 		Posicao p = new Posicao(0, 0);
 		
 		//Verificar acima da peca

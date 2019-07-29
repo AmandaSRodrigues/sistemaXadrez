@@ -114,11 +114,11 @@ public class UI { // abreviacao de Using Interface
 		List<PecaXadrez> white = capturada.stream().filter(x -> x.getColor() == Color.WHITE).collect(Collectors.toList());
 		List<PecaXadrez> black = capturada.stream().filter(x -> x.getColor() == Color.BLACK).collect(Collectors.toList());
 		System.out.println("Pecas capturadas: ");
-		System.out.print("Brancas: ");
+		System.out.print("Branca: ");
 		System.out.print(ANSI_WHITE);
 		System.out.println(Arrays.toString(white.toArray()));
 		System.out.print(ANSI_RESET);
-		System.out.print("Pretas: ");
+		System.out.print("Preta: ");
 		System.out.print(ANSI_YELLOW);
 		System.out.println(Arrays.toString(black.toArray()));
 		System.out.print(ANSI_RESET);

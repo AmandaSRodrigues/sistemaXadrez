@@ -95,7 +95,6 @@ public class Rei extends PecaXadrez{
 					mat[posicao.getLinha()][posicao.getColuna() + 2] = true;
 				}
 			}
-		}
 		
 			// #movimento especial do lado da rainha(roque grande)
 			Posicao posicaoTorre2 = new Posicao(posicao.getLinha(), posicao.getColuna() - 4);
@@ -108,6 +107,7 @@ public class Rei extends PecaXadrez{
 					mat[posicao.getLinha()][posicao.getColuna() - 2] = true;
 				}
 			}
+		}
 		
 		return mat;
 	}
